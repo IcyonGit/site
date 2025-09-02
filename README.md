@@ -1,3 +1,4 @@
 # site
-HTML for my dev-folio
-Not much else lol
+HTML for my dev-folio.
+<br>
+Not much else lol :)
