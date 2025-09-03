@@ -287,9 +287,9 @@
                             <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm border border-yellow-500/30">JavaScript</span>
                         </div>
                         <div class="flex gap-4">
-                            <a href="" class="text-primary hover:text-primary/80 transition-colors">
+                            <button onclick="speakPortfolio()" class="text-primary hover:text-primary/80 transition-colors bg-transparent border-none cursor-pointer">
                                 <i class="fas fa-external-link-alt mr-1"></i>Live Demo
-                            </a>
+                            </button>
                             <a href="https://github.com/ml1cy/DevFolio" class="text-primary hover:text-primary/80 transition-colors">
                                 <i class="fab fa-github mr-1"></i>GitHub
                             </a>
@@ -482,6 +482,44 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
+        }
+
+        // Portfolio Live Demo button functionality
+        function speakPortfolio() {
+            showCustomModal("You're already here!", "Feel free to explore my other projects and get in touch!");
+        }
+
+        // Custom modal functionality
+        function showCustomModal(title, message) {
+            // Create modal HTML
+            const modalHTML = `
+                <div id="custom-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-space-800 border border-space-600 rounded-lg p-6 max-w-md mx-4 shadow-2xl">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold text-primary">${title}</h3>
+                            <button onclick="closeCustomModal()" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        <p class="text-gray-300 mb-6">${message}</p>
+                        <div class="text-center">
+                            <button onclick="closeCustomModal()" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/80 transition-colors">
+                                Got it!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add modal to page
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        function closeCustomModal() {
+            const modal = document.getElementById('custom-modal');
+            if (modal) {
+                modal.remove();
+            }
         }
 
         // Smooth scrolling for navigation links
